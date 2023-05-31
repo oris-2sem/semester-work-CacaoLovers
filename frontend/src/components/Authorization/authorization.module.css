@@ -1,0 +1,87 @@
+@import url("https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css");
+.auth_container {
+  width: 50vh;
+  height: fit-content;
+  min-height: 30vh;
+}
+.auth_container__header {
+  display: flex;
+  justify-content: space-around;
+}
+.auth_container__header__button {
+  font-size: 15px;
+  color: #9C9C9C;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-top: 3px;
+}
+.auth_container__header__button__isActive {
+  color: #4d0404;
+}
+.auth_container__form {
+  display: flex;
+  flex-direction: column;
+  width: 40vh;
+  height: fit-content;
+  margin: auto;
+}
+.auth_container__form__input {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  margin-top: 20px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(60, 110, 114, 0.26);
+  border-radius: 10px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.auth_container__form__input:focus::placeholder {
+  opacity: 0;
+}
+.auth_container__form__input::placeholder {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  font-size: 0.8em;
+}
+.auth_container__form__button {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  font-weight: 100;
+  background: linear-gradient(87.16deg, #F9C6CC 33.65%, #FFE0E0 84.36%);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  border: none;
+  color: #624545;
+  padding: 8px 30px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.auth_container__form__oauth {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  color: #9A9A9A;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.auth_container__form__oauth__entity {
+  margin-left: 5px;
+  width: fit-content;
+}
+.auth_container__form__error {
+  margin-top: 3px;
+  font-size: 0.8em;
+  color: #282c34;
+}
+
+/*# sourceMappingURL=authorization.module.css.map */

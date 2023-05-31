@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Регистрация</title>
+</head>
+<body>
+    <form th:action="@{/mvc/auth/registration}" method="post" th:object="${accountRequest}">
+        <input type="text" th:field="*{username}" placeholder="Никнейм">
+        <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+        <input type="password" th:field="*{password}" placeholder="Пароль">
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <div th:if="${param.error != null}">Пользователь с таким именем уже существует</div>
+        <button>Регистрация</button>
+    </form>
+</body>
+</html>

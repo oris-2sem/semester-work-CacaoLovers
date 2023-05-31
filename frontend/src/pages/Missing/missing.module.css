@@ -1,0 +1,127 @@
+@import url("https://cdn.rawgit.com/mfd/09b70eb47474836f25a21660282ce0fd/raw/e06a670afcb2b861ed2ac4a1ef752d062ef6b46b/Gilroy.css");
+.map_container {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  margin: auto;
+  width: 100%;
+  height: 90vh;
+  display: block;
+}
+
+.missing {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 15%;
+  left: 5%;
+  height: 75%;
+  width: 27%;
+  background-color: #FAFBFC;
+  border-radius: 20px;
+  box-shadow: 0px 0px 16px -5px rgba(34, 60, 80, 0.15);
+  min-width: 350px;
+}
+.missing__container {
+  width: 100%;
+  height: 90%;
+  overflow: scroll;
+}
+.missing__container::-webkit-scrollbar {
+  width: 0;
+}
+.missing__filter {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  height: 7%;
+  margin: 10px auto 0 auto;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+}
+.missing__filter__display {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  height: 100%;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 16px -5px rgba(34, 60, 80, 0.15);
+}
+.missing__filter__display p {
+  white-space: nowrap;
+  overflow: hidden;
+  padding-right: 3px;
+  text-overflow: ellipsis;
+  max-width: 90%;
+  color: #9A9A9A;
+  margin-left: 10px;
+}
+.missing__filter__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28%;
+  background-color: #C08A90;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.missing__create_button {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+  height: fit-content;
+  font-size: 1.2em;
+  background: linear-gradient(87.16deg, #F9B0B8 33.65%, #FDD0D0 84.36%);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  color: #624545;
+  padding: 11px 30px;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 500;
+  min-width: 75vh;
+  width: fit-content;
+  min-height: 40vh;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  font-size: 0.9em;
+}
+.modal__left__image {
+  width: 25vh;
+  height: 25vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 15px;
+}
+.modal__right {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.modal__right__line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+}
+.modal__right__line__key {
+  max-width: 30%;
+}
+.modal__right__line__value {
+  max-width: 60%;
+}
+
+/*# sourceMappingURL=missing.module.css.map */

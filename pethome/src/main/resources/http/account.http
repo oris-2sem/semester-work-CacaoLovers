@@ -1,0 +1,15 @@
+GET http://localhost:8080/account/list
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNYXJhdGFtIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvdG9rZW4iLCJleHAiOjE2ODM5NzY2MTgsInJvbGUiOiJVU0VSIn0.ndLJAW3j_v-4XawSzuP1Gi8Q-ITvxniiDnLV6oGzeek
+
+###
+
+GET http://localhost:8080/account/d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756
+
+
+###
+POST http://localhost:8080/account
+Content-Type: application/json
+
+
+{"username": "Maratam", "email": "marat@gmail.com", "firstName": "Marat", "lastName": "Bashirov", "password": "marat55", "status": "CONFIRMED", "role": "USER"}
+

@@ -1,0 +1,87 @@
+@import "../../styles/fonts/Fonts"
+
+
+.header
+  margin: auto
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: row
+  height: 60px
+  width: 100%
+  color: #624545
+  position: absolute
+  top: 0
+  background-color: white
+  z-index: 100
+  @include font(500)
+
+  &__logo
+    display: flex
+    align-items: center
+    font-size: 1.6em
+    font-weight: 600
+
+    &__image
+      width: 1.2em
+      margin-right: 5px
+
+    &__link
+      text-decoration: none
+      color: #624545
+
+  &__link_container
+    display: flex
+    justify-content: center
+    align-items: center
+    font-size: 20px
+    margin-left: 13%
+    width: fit-content
+
+    &__link
+      font-size: 1.1em
+      margin-left: 10%
+      text-decoration: none
+      padding-bottom: 3px
+      color: #624545
+      font-weight: 600
+      background-image: linear-gradient(white, #4d0404)
+      background-position: 0% 100%
+      background-repeat: no-repeat
+      background-size: 0% 3px
+      transition: background-size .3s
+
+      &:hover
+        background-size: 100% 3px
+
+
+
+  &__auth
+    font-size: 1.2em
+    font-weight: 600
+    margin-left: 15%
+    border: 1.5px solid #624545
+    border-radius: 10px
+    padding: 5px 15px 5px 15px
+    text-decoration: none
+    color: #624545
+
+    &:hover
+      cursor: pointer
+      background-color: #624545
+      color: white
+
+
+.header_fix
+  margin: auto
+  height: 60px
+  width: 100%
+
+
+
+
+
+
+
+
+

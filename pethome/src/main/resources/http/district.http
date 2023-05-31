@@ -1,0 +1,5 @@
+GET http://localhost:8080/district?city=Казань
+
+###
+
+GET http://localhost:8080/district?city=Москва

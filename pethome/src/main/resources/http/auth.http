@@ -1,0 +1,31 @@
+POST http://localhost:8080/auth/token
+Content-Type: application/x-www-form-urlencoded
+
+
+username=Maratam&password=marat55
+
+
+###
+
+POST http://localhost:8080/auth/token
+#Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNYXJhdGFtIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvdG9rZW4iLCJleHAiOjE2ODM5NzcwNTAsInJvbGUiOiJVU0VSIn0.5iLQL4LV_4cX76nigpO0aX6QTGg2wAYxtzJZzgUbVm0
+Cookie: refresh=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJNYXJhdGFtIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL2F1dGgvdG9rZW4iLCJleHAiOjE2ODQwNzU2MjAsInJvbGUiOiJVU0VSIn0.9eHkH4gPzvDafHJh5ZM46J_PqqmvsPMScJMxWrMzVOE
+
+###
+
+POST http://localhost:8080/auth/token
+Content-Type: application/json
+
+
+{"username": "Maratam", "password": "marat55"}
+
+
+###
+GET http://localhost:8080/logout
+
+###
+POST http://localhost:8080/account/sign
+Content-Type: application/json
+
+
+{"email": "marat@gmail.com" ,"username": "Maratam", "password": "marat55"}

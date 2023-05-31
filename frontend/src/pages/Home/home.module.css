@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  height: 90%;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  z-index: -1;
+}
+
+.block {
+  width: 25%;
+  height: 100%;
+  z-index: 0;
+}
+
+.text {
+  position: absolute;
+  left: 80px;
+  bottom: 80px;
+  width: 50%;
+  color: #624545;
+  font-size: 6em;
+  font-weight: 600;
+}
+
+@media (max-width: 800px) {
+  .text {
+    font-size: 3em;
+  }
+}
+.content_container {
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+/*# sourceMappingURL=home.module.css.map */

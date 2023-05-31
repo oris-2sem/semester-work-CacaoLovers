@@ -1,0 +1,35 @@
+.error {
+  width: 80vh;
+  height: 30vh;
+  background: white;
+  box-shadow: 0px 0px 16px -5px rgba(34, 60, 80, 0.15);
+  border-radius: 15px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.error__image {
+  width: 150px;
+  height: 150px;
+  background-image: url("/src/image/search.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.error__text {
+  width: 300px;
+  height: fit-content;
+}
+.error__text__header {
+  font-size: 1.5em;
+  margin-left: 20px;
+  color: #4d0404;
+}
+.error__text__body {
+  margin-top: 20px;
+  font-size: 1em;
+  color: #9C9C9C;
+}
+
+/*# sourceMappingURL=page-not-found.module.css.map */

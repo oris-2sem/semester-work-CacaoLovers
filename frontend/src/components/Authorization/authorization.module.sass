@@ -1,0 +1,82 @@
+@import "../../styles/fonts/Fonts"
+
+.auth_container
+  width: 50vh
+  height: fit-content
+  min-height: 30vh
+
+  &__header
+    display: flex
+    justify-content: space-around
+
+    &__button
+      font-size: 15px
+      color: #9C9C9C
+      cursor: pointer
+      margin-left: 10px
+      margin-top: 3px
+
+      &__isActive
+        color: #4d0404
+
+  &__form
+    display: flex
+    flex-direction: column
+    width: 40vh
+    height: fit-content
+    margin: auto
+
+    &__input
+      @include font(500)
+      margin-top: 20px
+      width: 100%
+      height: 40px
+      border: 1px solid rgba(60, 110, 114, 0.26)
+      border-radius: 10px
+      padding: 10px
+      -webkit-box-sizing: border-box /* Safari/Chrome, other WebKit */
+      -moz-box-sizing: border-box   /* Firefox, other Gecko */
+      box-sizing: border-box
+
+      &:focus::placeholder
+        opacity: 0
+
+      &::placeholder
+        position: absolute
+        top: 5px
+        left: 15px
+        font-size: 0.8em
+
+    &__button
+      margin-top: 30px
+      margin-bottom: 20px
+      font-size: 1.2em
+      font-weight: 100
+      background: linear-gradient(87.16deg, #F9C6CC 33.65%, #FFE0E0 84.36%)
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.25)
+      border-radius: 10px
+      @include font(500)
+      border: none
+      color: #624545
+      padding: 8px 30px
+      cursor: pointer
+      overflow: hidden
+      text-overflow: ellipsis
+
+    &__oauth
+      @include font(400)
+      color: #9A9A9A
+      width: 100%
+      height: 50px
+      display: flex
+      justify-content: center
+      align-items: center
+
+      &__entity
+        margin-left: 5px
+        width: fit-content
+
+    &__error
+      margin-top: 3px
+      font-size: 0.8em
+      color: #282c34

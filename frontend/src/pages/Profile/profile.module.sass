@@ -1,0 +1,187 @@
+@import "../../styles/fonts/Fonts"
+
+.header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  width: 50%
+  height: 10%
+  margin: auto
+  align-items: center
+
+  &__login
+    color: #9C9C9C
+    width: 30%
+    font-size: 1.3em
+    margin-left: 10px
+
+  &__menu
+    display: flex
+    justify-content: space-around
+    width: 50%
+    color: #9C9C9C
+
+
+    &__button
+      width: fit-content
+      padding-bottom: 3px
+      @include font(500)
+      background-image: linear-gradient(white, #4d0404)
+      background-position: 0% 100%
+      background-repeat: no-repeat
+      background-size: 0% 2px
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      text-decoration: none
+      color: #9C9C9C
+      &:hover
+        color: #624545
+        cursor: pointer
+
+      &__isActive
+        background-size: 100% 2px
+        color: #624545
+
+
+.profile
+  margin: auto
+  width: 50%
+  height: fit-content
+  display: flex
+  justify-content: space-between
+  margin-top: 20px
+  min-width: 420px
+
+  &__left_bar
+    display: flex
+    flex-direction: column
+    width: 40%
+    height: fit-content
+    background-color: white
+    box-shadow: 0 0 50px rgba(179, 186, 207, 0.25)
+    border-radius: 15px
+    align-items: center
+    min-width: 20%
+
+    &__image
+      width: 25vh
+      height: 25vh
+      background-position: center
+      background-repeat: no-repeat
+      background-size: cover
+      background-image: url("/src/image/cat_1.jpg")
+      border-radius: 50%
+      margin: auto
+
+    &__name
+      font-size: 1.4em
+      color: #282828
+      width: fit-content
+      margin-top: 10px
+
+    &__contact
+      font-size: 1.0em
+      color: #9C9C9C
+      margin-top: 7px
+
+    &__button
+      margin-top: 20px
+      margin-bottom: 20px
+      font-size: 1.2em
+      font-weight: 100
+      background: linear-gradient(87.16deg, #F9C6CC 33.65%, #FFE0E0 84.36%)
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25)
+      border-radius: 10px
+      @include font(500)
+      color: #624545
+      padding: 8px 30px
+      cursor: pointer
+      overflow: hidden
+      text-overflow: ellipsis
+      max-width: 80%
+
+
+  &__right_bar
+    width: 58%
+    overflow: scroll
+    max-height: 60vh
+
+    &::-webkit-scrollbar
+      width: 0
+
+    &__info
+      box-shadow: 0 0 50px rgba(179, 186, 207, 0.25)
+      border-radius: 15px
+      background-color: white
+      width: 100%
+      min-height: 50%
+      height: fit-content
+      display: flex
+      flex-direction: column
+
+      &__header
+        margin-left: 10px
+        margin-top: 5px
+        color: #9A9A9A
+
+
+      &__lines
+        width: 90%
+        height: fit-content
+        margin: auto
+        display: flex
+        justify-content: space-around
+        margin-top: 20px
+
+
+        &__key
+          width: 70%
+          color: #9C9C9C
+
+        &__value
+          width: 30%
+          color: #C08A90
+
+      &__exit
+        width: 90%
+        display: flex
+        justify-content: end
+        margin-top: 20px
+        margin-bottom: 20px
+
+        button
+          background: linear-gradient(87.16deg, #F9C6CC 33.65%, #FFE0E0 84.36%)
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25)
+          border-radius: 10px
+          color: #624545
+          padding: 8px 30px
+          @include font(500)
+          
+
+
+
+
+.notification_block
+  width: 100%
+  margin-bottom: 20px
+
+  &__date
+    @include font(400)
+    font-size: 0.7em
+    margin: auto
+    width: fit-content
+    box-sizing: border-box
+    background: #FFFFFF
+    border: 1px solid rgba(0, 0, 0, 0.1)
+    border-radius: 10px
+    padding: 1px 8px
+    margin-bottom: 10px
+    box-shadow: 0 0 50px rgba(179, 186, 207, 0.25)
+
+
+
+
+
+
+
