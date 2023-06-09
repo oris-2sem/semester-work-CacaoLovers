@@ -29,7 +29,7 @@ export const RegistrationForm = ({closeModal = (f) => f}) => {
             let result = register({username: values.username, password: values.password, email: values.email})
             if (!result.error) {
                 closeModal()
-                navigate("/profile")
+                navigate(`/`)
             } else {
                 regError = result.error
             }

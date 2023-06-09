@@ -15,6 +15,7 @@ export default class MissingService {
     }
 
     static async addMissing(missing){
+        console.log(missing.type)
         return await fetch(`http://${BASE_URI}:8080/missing`, {
             headers: {
                 "Authorization": localStorage.getItem("token"),
@@ -34,8 +35,21 @@ export default class MissingService {
         })
     }
 
-    static async getMissing(){
-        return await fetch(`http://${BASE_URI}:8080/missing/list`, {
+    static async getMissing(type){
+        let typeMissing = "";
+        switch (type){
+            case "lost":
+                typeMissing = 'FOUND'
+                break
+            case "found":
+                typeMissing = 'LOST';
+                break
+            default: typeMissing = 'FOUND'
+        }
+
+        console.log(type)
+
+        return await fetch(`http://${BASE_URI}:8080/missing?type=${typeMissing}`, {
             method: "GET"
         })
     }

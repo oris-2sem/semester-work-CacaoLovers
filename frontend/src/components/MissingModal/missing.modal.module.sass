@@ -1,0 +1,71 @@
+@import "../../styles/fonts/Fonts"
+
+.modal
+  @include font(500)
+  min-width: 75vh
+  max-width: 75vh
+  width: fit-content
+  min-height: 40vh
+  height: fit-content
+  display: flex
+  justify-content: center
+  font-size: 0.9em
+
+
+  &__left
+    height: 100%
+
+    &__image
+      width: 25vh
+      height: 25vh
+      background-size: cover
+      background-repeat: no-repeat
+      background-position: center
+      border-radius: 15px
+
+
+  &__right
+    width: 55%
+    display: flex
+    flex-direction: column
+    margin-left: 20px
+
+    &__line
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      width: 100%
+      height: fit-content
+      margin-bottom: 15px
+
+      &__key
+        max-width: 30%
+        @include font(500)
+        color: #9C9C9C
+
+      &__value
+        max-width: 55%
+        @include font(500)
+        color: #624545
+        text-align: end
+
+    &__button_holder
+      display: flex
+      align-self: end
+
+      button
+        text-align: center
+        width: fit-content
+        margin-bottom: 10px
+        height: fit-content
+        font-size: 15px
+        background: linear-gradient(87.16deg, #F9B0B8 33.65%, #FDD0D0 84.36%)
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25)
+        border-radius: 10px
+        @include font(600)
+        color: #624545
+        padding: 8px 20px
+        cursor: pointer
+        overflow: hidden
+        text-overflow: ellipsis
+        margin-left: 10px

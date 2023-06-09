@@ -18,6 +18,7 @@ import {MissingInfo} from "./pages/MisssingCreate/components/MissingInfo";
 import {MapLocation} from "./pages/MisssingCreate/components/MapLocation";
 import {MissingPhoto} from "./pages/MisssingCreate/components/MissingPhoto";
 import {MissingVerify} from "./pages/MisssingCreate/components/MissingVerify";
+import {MissingContainer} from "./pages/Missing/MissingContainer";
 
 function App() {
     const {auth} = useAccount()
@@ -26,7 +27,10 @@ function App() {
           <Route path="/" element={<Layout/>}>
             <Route element={<Home title={'Главная'}/>} index/>
               <Route path="/auth" element={<Home title={'Главная'} auth={auth}/> } />
-            <Route  path="/missing/*" element={<Missing title={'Объявления'}/>}/>
+              <Route  path="/missing" element={<MissingContainer/>}>
+                  <Route  path="/missing/lost" element={<Missing title={'Объявления о пропаже'}/>} index/>
+                  <Route  path="/missing/found" element={<Missing title={'Объявления о находке'}/>}/>
+              </Route>
             <Route path="/volunteer/*" element={<Volunteer title={'Волонтерство'}/>}/>
             <Route path="/shelter" element={<Shelter title={'Приюты'}/>}/>
             <Route path="/profile" element={<Profile title={'Профиль'}/>}>
@@ -35,11 +39,11 @@ function App() {
                 <Route path={"/profile/:userId/notification"} element={<NotificationProfile/>}/>
             </Route>
             <Route path="*" element={<PageNotFound title={'Страница не найдена'}/>}/>
-              <Route path={"/missing/create"} element={<MissingCreate title={'Создание объявления'}/>}>
-                  <Route path={"/missing/create/info"} element={<MissingInfo/>} index/>
-                  <Route path={"/missing/create/location"} element={<MapLocation/>}/>
-                  <Route path={"/missing/create/photo"} element={<MissingPhoto/>}/>
-                  <Route path={"/missing/create/verify"} element={<MissingVerify/>}/>
+              <Route path={"/missing/create/:type"} element={<MissingCreate title={'Создание объявления'}/>}>
+                  <Route path={"/missing/create/:type/info"} element={<MissingInfo/>} index/>
+                  <Route path={"/missing/create/:type/location"} element={<MapLocation/>}/>
+                  <Route path={"/missing/create/:type/photo"} element={<MissingPhoto/>}/>
+                  <Route path={"/missing/create/:type/verify"} element={<MissingVerify/>}/>
               </Route>
           </Route>
       </Routes>

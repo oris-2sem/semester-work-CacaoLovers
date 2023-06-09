@@ -1,13 +1,14 @@
 import styles from "../create.missing.module.css";
 import React, {useEffect, useRef} from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useMissing} from "../../../store/MissingProvider";
 
 export const MissingInfo = () => {
 
     const {missing} = useMissing();
+    const param = useParams();
 
-
+    missing.type = param.type === "lost" ? "LOST" : "FOUND"
 
     return (
         <div className={styles.info}>
@@ -45,7 +46,7 @@ export const MissingInfo = () => {
                            type="text" onChange={(e) => missing.name = e.target.value}/>
                 </div>
                 <div className={styles.info__line}>
-                    <Link to="/missing/create/location" className={styles.info__button}>Далее</Link>
+                    <Link to={`/missing/create/${param.type}/location`} className={styles.info__button}>Далее</Link>
                 </div>
             </form>
         </div>

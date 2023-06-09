@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter} from "react-router-dom";
 import Account from "./store/account";
 import {AccountProvider} from "./store/AccountProvider";
+import {MissingProvider} from "./store/MissingProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -14,11 +15,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-      <AccountProvider>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-      </AccountProvider>
+      <BrowserRouter>
+          <AccountProvider>
+              <MissingProvider>
+                <App />
+              </MissingProvider>
+          </AccountProvider>
+      </BrowserRouter>
   </React.StrictMode>
 );
 

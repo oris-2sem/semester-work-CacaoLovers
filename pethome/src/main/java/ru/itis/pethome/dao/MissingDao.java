@@ -32,6 +32,13 @@ public interface MissingDao extends JpaRepository<Missing, UUID>, JpaSpecificati
                 }
             }
 
+            if (parameters.containsKey("type")) {
+                Missing.Type type =  Missing.Type.valueOf(parameters.get("type"));
+                if (type != null) {
+                    predicates.add(criteriaBuilder.equal(root.get("type"), type));
+                }
+            }
+
 
             if (parameters.containsKey("district")) {
                 UUID district = UUID.fromString(parameters.get("district"));

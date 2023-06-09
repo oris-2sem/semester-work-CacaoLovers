@@ -7,15 +7,18 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Авторизация</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/auth.css}" rel="stylesheet"/>
 </head>
 <body>
-    <form th:action="@{/mvc/auth/login}" method="post" th:object="${accountRequest}">
+    <form th:action="@{/mvc/auth/login}" method="post" th:object="${signUpRequest}">
         <input type="text" placeholder="Никнейм" th:field="*{username}">
         <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
         <input type="password" placeholder="Пароль" th:field="*{password}">
         <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         <div th:if="${param.error != null}">Неверный никнейм или пароль</div>
         <button>Войти</button>
+        <a th:href="@{/mvc/auth/registration}">Еще не зарегистрированы?</a>
     </form>
 </body>
 </html>

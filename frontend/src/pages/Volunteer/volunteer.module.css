@@ -57,6 +57,9 @@
   padding: 10px 0;
   cursor: pointer;
   color: rgba(192, 138, 144, 0.61);
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .content__left_bar__district__info__missing:hover {
   color: #624545;

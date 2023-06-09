@@ -7,9 +7,23 @@ GET http://localhost:8080/account/d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756
 
 
 ###
-POST http://localhost:8080/account
+POST http://localhost:8080/account/sign
 Content-Type: application/json
 
 
 {"username": "Maratam", "email": "marat@gmail.com", "firstName": "Marat", "lastName": "Bashirov", "password": "marat55", "status": "CONFIRMED", "role": "USER"}
 
+
+###
+PUT http://localhost:8080/account
+Content-Type: application/json
+
+
+{
+  "id": "1c9bb619-2f1a-4753-9ff0-36a95a80d1f4",
+  "firstName": "Alex",
+  "lastName": "Mrazov",
+  "city": {
+    "name": ""
+  }
+}

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.itis.pethome.controller.api.AccountApi;
 import ru.itis.pethome.dto.request.AccountRequest;
+import ru.itis.pethome.dto.request.SignUpRequest;
 import ru.itis.pethome.dto.response.AccountResponse;
 import ru.itis.pethome.exception.UserNotFoundException;
 import ru.itis.pethome.service.AccountService;
@@ -19,14 +20,10 @@ public class AccountController implements AccountApi {
 
     private final AccountService accountService;
 
-    @Override
-    public AccountResponse createAccount(AccountRequest accountRequest) {
-        return accountService.createAccount(accountRequest);
-    }
 
     @Override
-    public AccountResponse signUpAccount(AccountRequest accountRequest) {
-        return accountService.signUp(accountRequest);
+    public AccountResponse signUpAccount(SignUpRequest signUpRequest) {
+        return accountService.signUp(signUpRequest);
     }
 
     @Override

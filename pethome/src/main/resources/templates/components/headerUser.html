@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <nav>
+        <a th:href="@{/home}">Главная</a>
+        <a th:href="@{/mvc/account/profile}">Профиль</a>
+        <form th:if="${session?.SPRING_SECURITY_CONTEXT != null}" th:action="@{/logout}" method="POST">
+            <button th:href="@{/logout}">Выйти</button>
+        </form>
+        <a th:if="${session?.SPRING_SECURITY_CONTEXT == null}" th:href="@{/mvc/auth/login}">Войти</a>
+
+    </nav>
+</body>
+</html>

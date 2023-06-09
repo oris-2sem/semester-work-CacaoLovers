@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Админ</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
 </head>
 <body>
-
+    <nav>
+        <a th:href="@{/home}">Главная</a>
+        <a th:href="@{/mvc/district/edit}">Районы</a>
+        <a th:href="@{/mvc/missing/edit}">Объявления</a>
+        <a th:href="@{/mvc/user/edit}">Пользователи</a>
+        <form th:if="${session?.SPRING_SECURITY_CONTEXT != null}" th:action="@{/logout}" method="post">
+            <button  th:href="@{/logout}">Выйти</button>
+        </form>
+    </nav>
 </body>
 </html>

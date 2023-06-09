@@ -1,14 +1,15 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import Account from "./account";
 import MissingService from "../services/MissingService";
-
-const store = new Account()
+import {useNavigate} from "react-router-dom";
 
 const MissingContext = createContext({});
 
 export const useMissing = () => useContext(MissingContext)
 
 export const MissingProvider = ({children}) => {
+
+    let navigate = useNavigate();
 
     const [missing, setMissing] = useState({
         posX: 0,
@@ -17,6 +18,7 @@ export const MissingProvider = ({children}) => {
         name: "",
         kind: "",
         gender: "Неопределен",
+        address: "",
         district: {
             name: "",
             city: ""
@@ -24,11 +26,11 @@ export const MissingProvider = ({children}) => {
         owner: {
             id: localStorage.getItem("uuid")
         },
-        type: "FOUND",
+        type: "",
         status: "ACTIVE",
         image: {
             id: "",
-            path: ""
+            path: "search.png"
         }
     })
 
@@ -36,10 +38,11 @@ export const MissingProvider = ({children}) => {
 
     let addMissing = async () => {
         await MissingService.addMissing(missing)
+        navigate(`/missing/${missing.type}`)
     }
 
-    let getMissing = async () => {
-        return await MissingService.getMissing()
+    let getMissing = async (type) => {
+        return await MissingService.getMissing(type)
     }
 
     let deleteMissing = async (uuid) => {

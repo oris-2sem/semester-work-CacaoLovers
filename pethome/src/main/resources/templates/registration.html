@@ -7,15 +7,20 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Регистрация</title>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+    <link th:href="@{/css/auth.css}" rel="stylesheet"/>
 </head>
 <body>
-    <form th:action="@{/mvc/auth/registration}" method="post" th:object="${accountRequest}">
+    <form th:action="@{/mvc/auth/registration}" method="post" th:object="${signUpRequest}">
+
         <input type="text" th:field="*{username}" placeholder="Никнейм">
         <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
         <input type="password" th:field="*{password}" placeholder="Пароль">
         <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
         <div th:if="${param.error != null}">Пользователь с таким именем уже существует</div>
         <button>Регистрация</button>
+        <a th:href="@{/mvc/auth/registration}">Еще не зарегистрированы?</a>
     </form>
+    <a th:href="@{/mvc/auth/login}">Уже зарегистрированы?</a>
 </body>
 </html>

@@ -1,10 +1,12 @@
 import {Map, useYMaps} from "@pbe/react-yandex-maps";
 import React, {useRef, useState} from "react";
 import styles from "../create.missing.module.css";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useMissing} from "../../../store/MissingProvider";
 
 export const MapLocation = () => {
+
+    const param = useParams()
 
     const {missing} = useMissing()
     const location = useRef(null)
@@ -56,6 +58,7 @@ export const MapLocation = () => {
             let difAddress = newAddress.split(',')
             missing.district.name = difAddress[1]
             missing.district.city = difAddress[0]
+            missing.address = newAddress
 
             placemarkRef.current.properties.set({
                 iconCaption: newAddress,
@@ -92,8 +95,8 @@ export const MapLocation = () => {
                 <input ref={location} defaultValue={missing.address}/>
             </div>
             <div className={styles.info__line}>
-                <Link to="/missing/create/info" className={styles.info__button}>Назад</Link>
-                <Link to="/missing/create/photo" className={styles.info__button}>Далее</Link>
+                <Link to={`/missing/create/${param.type}/info`} className={styles.info__button}>Назад</Link>
+                <Link to={`/missing/create/${param.type}/photo`} className={styles.info__button}>Далее</Link>
             </div>
         </>
     );

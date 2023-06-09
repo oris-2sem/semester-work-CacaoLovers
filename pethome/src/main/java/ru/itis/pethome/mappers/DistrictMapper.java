@@ -9,6 +9,9 @@ import ru.itis.pethome.model.District;
 @Mapper(componentModel = "spring")
 public interface DistrictMapper extends EntityMapper<District, DistrictRequest, DistrictResponse> {
 
+
+
+
     @Override
     @Mapping(target = "city", expression = "java(null)")
     District toEntity(DistrictRequest districtRequest);

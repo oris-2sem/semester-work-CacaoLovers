@@ -1,0 +1,42 @@
+@import '../../../styles/fonts/Fonts'
+
+
+.container
+  @include font(500)
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-width: 200px
+  min-height: 200px
+
+  input, select
+    border-radius: 10px
+    margin-bottom: 20px
+    height: 40px
+    border: 1px solid rgba(60, 110, 114, 0.26)
+    padding: 10px
+
+  &__name_field
+    align-self: start
+    margin-left: 60px
+    margin-bottom: 5px
+    font-size: 15px
+    color: #624545
+
+  button
+    margin-top: 30px
+    margin-bottom: 20px
+    font-size: 1.2em
+    font-weight: 100
+    background: linear-gradient(87.16deg, #F9C6CC 33.65%, #FFE0E0 84.36%)
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25)
+    border-radius: 10px
+    border: none
+    color: #624545
+    padding: 8px 30px
+    @include font(500)
+    cursor: pointer
+    overflow: hidden
+    text-overflow: ellipsis
+

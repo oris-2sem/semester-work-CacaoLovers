@@ -12,8 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class VolunteerResponse {
-    private AccountResponse accountResponse;
-    private List<DistrictResponse> districtResponses;
+    private AccountResponse account;
     private Integer rating;
     private Integer summaryFound;
     private Integer dayOfVolunteer;

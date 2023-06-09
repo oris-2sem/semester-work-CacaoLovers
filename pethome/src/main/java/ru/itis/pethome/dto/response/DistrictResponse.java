@@ -13,7 +13,7 @@ public class DistrictResponse {
 
     UUID id;
     String name;
-    City city;
+    CityResponse city;
     Double posX;
     Double posY;
 }

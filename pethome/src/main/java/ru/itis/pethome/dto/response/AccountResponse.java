@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import ru.itis.pethome.model.City;
 
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Builder
@@ -20,9 +21,11 @@ public class AccountResponse {
     private String email;
     private String firstName;
     private String lastName;
-    private City city;
+    private CityResponse city;
     private String role;
     private String status;
     private long createdTime;
     private long updatedTime;
+    private List<DistrictResponse> districts;
+    private String image;
 }

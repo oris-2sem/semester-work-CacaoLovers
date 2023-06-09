@@ -1,4 +1,4 @@
-GET http://localhost:8080/missing/list
+GET http://localhost:8080/missing?type=LOST
 
 ###
 
@@ -20,7 +20,7 @@ Content-Type: application/json
     "city": "Казань"
   },
   "owner": {
-    "id": "7e243c23-7454-42be-b69f-3e720051afad"
+    "id": "d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756"
   },
   "type": "LOST",
   "status": "ACTIVE"
@@ -30,3 +30,7 @@ Content-Type: application/json
 ###
 
 DELETE http://localhost:8080/missing/821b00b1-f030-42aa-8c6a-6f679d65f28b
+
+###
+
+GET http://localhost:8080/missing/fact

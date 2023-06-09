@@ -1,1 +1,12 @@
 GET http://localhost:8080/notification
+
+###
+PUT http://localhost:8080/missing/response
+Content-Type: application/json
+
+
+{
+  "accountId": "d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756",
+  "missingId": "d51b3099-416d-4293-964e-7781260f6d30"
+}
+

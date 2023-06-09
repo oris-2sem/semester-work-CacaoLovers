@@ -12,9 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class DistrictInfoResponse {
-    private DistrictResponse districtResponse;
+    private DistrictResponse district;
     private Integer missingAll;
     private Integer missingToday;
     private Integer activeVolunteer;
-    private List<MissingResponse> missingResponseList;
+    private List<MissingResponse> missingList;
 }

@@ -23,8 +23,9 @@ public class MissingResponse {
     private String kind;
     private String gender;
     private String imagePath;
+    private String address;
 
-    private District district;
+    private DistrictResponse district;
     private AccountResponse owner;
     private Missing.Type type;
     private Missing.Status status;

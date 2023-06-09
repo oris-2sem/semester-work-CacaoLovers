@@ -17,13 +17,27 @@ spring:
     hibernate:
       ddl-auto: update
 
+#  mail:
+#    password: dtftttdtbnktfvje
+#    default-encoding: UTF-8
+#    host: smtp.gmail.com
+#    protocol: smtp
+#    username: marsel.gabitov.74@gmail.com
+#    port: 587
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true
+
   mail:
-    password: nngkztjjpbmgqiox
+    password: xPW6ad2sfeXjanB2UNq2
     default-encoding: UTF-8
-    host: smtp.gmail.com
+    host: smtp.mail.ru
     protocol: smtp
-    username: marsel.gabitov.74@gmail.com
-    port: 587
+    username: marsel.gabitov.74@mail.ru
+    port: 465
     properties:
       mail:
         smtp:

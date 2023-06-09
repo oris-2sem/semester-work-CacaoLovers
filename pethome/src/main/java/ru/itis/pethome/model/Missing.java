@@ -22,6 +22,8 @@ public class Missing extends AbstractEntity{
 
     private String imagePath;
 
+    private String address;
+
 
     @ManyToOne
     @JoinColumn(name = "district_id")

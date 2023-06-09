@@ -21,6 +21,7 @@ public class MissingRequest {
     private String name;
     private String kind;
     private String gender;
+    private String address;
 
     private ImageRequest image;
 

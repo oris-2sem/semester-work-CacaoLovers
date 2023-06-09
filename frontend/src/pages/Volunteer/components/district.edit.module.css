@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+  min-height: 200px;
+  align-items: center;
+  max-width: 400px;
+}
+.container__header {
+  color: #624545;
+  align-self: start;
+  margin-left: 20px;
+}
+.container__districts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.container__districts__entity {
+  border: 1px solid #D2D2D2;
+  border-radius: 10px;
+  color: #9C9C9C;
+  text-align: center;
+  padding: 8px 8px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 10px;
+  width: fit-content;
+  margin-left: 10px;
+}
+.container__districts__entity:hover {
+  color: white;
+  background-color: #C08A90;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=district.edit.module.css.map */

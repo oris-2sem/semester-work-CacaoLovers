@@ -3,16 +3,20 @@ package ru.itis.pethome.service;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import ru.itis.pethome.dao.AccountDao;
 import ru.itis.pethome.dao.ConfirmAccountDao;
 import ru.itis.pethome.dto.request.AccountRequest;
+import ru.itis.pethome.dto.request.SignUpRequest;
 import ru.itis.pethome.dto.response.AccountResponse;
+import ru.itis.pethome.exception.CityNotFoundException;
 import ru.itis.pethome.exception.HttpControllerException;
 import ru.itis.pethome.exception.UserNotFoundException;
 import ru.itis.pethome.exception.UsernameAlreadyTaken;
 import ru.itis.pethome.mappers.AccountMapper;
 import ru.itis.pethome.model.Account;
+import ru.itis.pethome.model.City;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -24,12 +28,8 @@ public class AccountServiceImpl implements AccountService {
 
     private final AccountDao accountDao;
     private final AccountMapper accountMapper;
-    private final ConfirmAccountDao confirmAccountDao;
+    private final DistrictService districtService;
 
-    @Override
-    public AccountResponse createAccount(AccountRequest accountRequest) {
-        return accountMapper.toResponse(accountDao.save(accountMapper.toEntity(accountRequest)));
-    }
 
     @Override
     public AccountResponse confirmAccount(UUID uuid) {
@@ -42,10 +42,17 @@ public class AccountServiceImpl implements AccountService {
         Account account = accountDao.findById(accountRequest.getId())
                 .orElseThrow(() -> new UserNotFoundException(accountRequest.getId()));
 
-        account = accountMapper.toEntity(accountRequest);
-        accountDao.save(account);
+        account.setFirstName(accountRequest.getFirstName());
+        account.setLastName(accountRequest.getLastName());
+        if (accountRequest.getEmail() != null){
+            account.setEmail(accountRequest.getEmail());
+        }
+        account.setEmail(accountRequest.getEmail());
+        if (accountRequest.getCity() != null) {
+            account.setCity(districtService.findCityByName(accountRequest.getCity().getName()).orElseThrow(() -> new CityNotFoundException(accountRequest.getCity().getName())));
+        }
 
-        return accountMapper.toResponse(account);
+        return accountMapper.toResponse(accountDao.save(account));
     }
 
     @Override
@@ -74,7 +81,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public AccountResponse getAccountByUsername(String username) {
-        return null;
+        return accountMapper.toResponse(accountDao.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username)));
     }
 
     @Override
@@ -88,14 +95,13 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public AccountResponse signUp(AccountRequest accountRequest) {
-        try {
-
-            if (accountDao.findByUsername(accountRequest.getUsername()).isPresent()) throw new UsernameAlreadyTaken("Пользователь c таким именем уже существует");
-
-        } catch (HttpControllerException e) {
-                throw new RuntimeException(e);
-        }
-        return accountMapper.toResponse(accountDao.save(accountMapper.toEntity(accountRequest)));
+    public AccountResponse signUp(SignUpRequest signUpRequest) {
+        if (accountDao.findByUsername(signUpRequest.getUsername()).isPresent()) throw new UsernameAlreadyTaken("Пользователь c таким именем уже существует");
+        Account account = accountMapper.toAccountFromSignUp(signUpRequest);
+        City city = districtService.findCityByName("").get();
+        account.setRole(Account.Role.USER);
+        account.setStatus(Account.Status.CONFIRMED);
+        account.setCity(city);
+        return accountMapper.toResponse(accountDao.save(account));
     }
 }

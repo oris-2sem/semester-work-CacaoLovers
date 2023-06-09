@@ -1,1 +1,11 @@
 GET http://localhost:8080/city
+
+###
+
+POST http://localhost:8080/city
+Content-Type: application/json
+
+
+{
+  "name": ""
+}

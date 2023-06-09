@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Entity
@@ -22,4 +21,10 @@ public class District extends AbstractEntity{
     @ManyToOne
     @JoinColumn(name = "city_id")
     private City city;
+
+    @ManyToMany
+    private List<Account> volunteer;
+
+    @OneToMany(mappedBy = "district")
+    private List<Missing> missings;
 }

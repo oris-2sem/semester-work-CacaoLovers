@@ -1,0 +1,30 @@
+GET http://localhost:8080/volunteer/district/2cfbf3ab-eab6-42c8-96c2-23343f341d01
+
+###
+
+GET http://localhost:8080/volunteer/unselect/d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756
+
+###
+
+POST http://localhost:8080/volunteer
+Content-Type: application/json
+
+
+{
+  "accountId": "d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756",
+  "districtId": "741c1103-ef00-4add-8a0c-68445978d092"
+}
+
+###
+
+DELETE http://localhost:8080/volunteer
+Content-Type: application/json
+
+
+{
+"accountId": "d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756",
+"districtId": "2cfbf3ab-eab6-42c8-96c2-23343f341d01"
+}
+
+###
+GET http://localhost:8080/volunteer/d4fb0b3c-cc99-4f76-9043-ae6a1d7ac756

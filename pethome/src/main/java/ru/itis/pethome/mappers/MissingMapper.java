@@ -16,6 +16,7 @@ public class MissingMapper implements EntityMapper<Missing, MissingRequest, Miss
     private final AccountDao accountDao;
     private final DistrictService districtService;
     private final AccountMapper accountMapper;
+    private final DistrictMapper districtMapper;
 
     @Override
     public Missing toEntity(MissingRequest missingRequest){
@@ -31,6 +32,7 @@ public class MissingMapper implements EntityMapper<Missing, MissingRequest, Miss
                 .kind(missingRequest.getKind())
                 .gender(missingRequest.getGender())
                 .imagePath(missingRequest.getImage().getPath())
+                .address(missingRequest.getAddress())
                 .build();
     }
 
@@ -43,12 +45,13 @@ public class MissingMapper implements EntityMapper<Missing, MissingRequest, Miss
                 .description(object.getDescription())
                 .owner(accountMapper.toResponse(object.getOwner()))
                 .status(object.getStatus())
-                .district(object.getDistrict())
+                .district(districtMapper.toResponse(object.getDistrict()))
                 .type(object.getType())
                 .id(object.getId())
                 .kind(object.getKind())
                 .gender(object.getGender())
                 .imagePath(object.getImagePath())
+                .address(object.getAddress())
                 .build();
     }
 }

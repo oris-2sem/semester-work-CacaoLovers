@@ -1,19 +1,26 @@
 package ru.itis.pethome.service;
 
 import lombok.AllArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.itis.pethome.dao.CityDao;
 import ru.itis.pethome.dao.DistrictDao;
+import ru.itis.pethome.dto.request.CityRequest;
 import ru.itis.pethome.dto.request.DistrictRequest;
 import ru.itis.pethome.dto.response.CityResponse;
+import ru.itis.pethome.dto.response.DistrictInfoResponse;
 import ru.itis.pethome.dto.response.DistrictResponse;
+import ru.itis.pethome.exception.DistrictNotFoundException;
 import ru.itis.pethome.mappers.CityMapper;
 import ru.itis.pethome.mappers.DistrictMapper;
+import ru.itis.pethome.model.Account;
 import ru.itis.pethome.model.City;
 import ru.itis.pethome.model.District;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 
@@ -38,6 +45,11 @@ public class DistrictServiceImpl implements DistrictService {
     }
 
     @Override
+    public List<DistrictResponse> getDistricts() {
+        return districtMapper.toListResponse(districtDao.findAll());
+    }
+
+    @Override
     public Optional<District> getDistrictByName(DistrictRequest district) {
         return Optional.ofNullable(districtDao.getDistrictByNameAndCity(district.getName(), district.getCity()));
     }
@@ -47,6 +59,8 @@ public class DistrictServiceImpl implements DistrictService {
         City cityResult = cityDao.findByName(city).orElseThrow();
         return districtMapper.toListResponse(districtDao.getDistrictByCity(cityResult));
     }
+
+
 
     @Override
     public Optional<District> resolutionDistrict(DistrictRequest districtRequest) {
@@ -76,12 +90,20 @@ public class DistrictServiceImpl implements DistrictService {
 
     @Override
     public void deleteDistrict(District district) {
-
+        districtDao.delete(district);
     }
 
     @Override
-    public City createCity(City city) {
-        return null;
+    @Transactional
+    public void deleteDistrictById(UUID id) {
+        District district = districtDao.findById(id).orElseThrow(() -> new DistrictNotFoundException(id.toString()));
+        districtDao.delete(district);
+    }
+
+    @Override
+    public CityResponse createCity(CityRequest city) {
+        City cityEntity = cityMapper.toEntity(city);
+        return cityMapper.toResponse(cityDao.save(cityEntity));
     }
 
     @Override

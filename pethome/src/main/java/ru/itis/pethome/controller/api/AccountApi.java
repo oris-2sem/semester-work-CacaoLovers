@@ -2,6 +2,7 @@ package ru.itis.pethome.controller.api;
 
 import org.springframework.web.bind.annotation.*;
 import ru.itis.pethome.dto.request.AccountRequest;
+import ru.itis.pethome.dto.request.SignUpRequest;
 import ru.itis.pethome.dto.response.AccountResponse;
 import ru.itis.pethome.exception.UserNotFoundException;
 
@@ -12,12 +13,9 @@ import java.util.UUID;
 @CrossOrigin(origins = "http://localhost:3000")
 public interface AccountApi {
 
-    @PostMapping
-    AccountResponse createAccount(@RequestBody AccountRequest accountRequest);
-
     @RequestMapping("/sign")
     @PostMapping
-    AccountResponse signUpAccount(@RequestBody AccountRequest accountRequest);
+    AccountResponse signUpAccount(@RequestBody SignUpRequest signUpRequest);
 
     @GetMapping("/confirm/{uuid}")
     AccountResponse confirmAccount(@PathVariable UUID uuid);

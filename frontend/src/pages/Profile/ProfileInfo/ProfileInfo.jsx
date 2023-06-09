@@ -5,8 +5,7 @@ import {useEffect, useState} from "react";
 
 
 export const ProfileInfo = () => {
-    const navigate = useNavigate()
-    const {logout, getAccount} = useAccount()
+    const {account, getAccount, exit} = useAccount()
     const params = useParams()
     const [user, setUser] = useState()
 
@@ -18,11 +17,6 @@ export const ProfileInfo = () => {
         }
         getProfile()
     }, [])
-
-    let exit = async () => {
-        await logout()
-        navigate("/")
-    }
 
 
     const stringFromEpochMillis = (date) => {
@@ -50,9 +44,11 @@ export const ProfileInfo = () => {
                 <div className={styles.profile__right_bar__info__lines__key}>Последнее обновление</div>
                 <div className={styles.profile__right_bar__info__lines__value}>{stringFromEpochMillis(user?.updatedTime)}</div>
             </div>
-            <div className={styles.profile__right_bar__info__exit} onClick={exit}>
-                <button>Выйти</button>
-            </div>
+
+            {account?.id === params.userId? <div className={styles.profile__right_bar__info__exit} onClick={exit}>
+                                                <button>Выйти</button>
+                                            </div> : ""}
         </div>
     )
 }
+

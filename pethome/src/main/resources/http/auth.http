@@ -28,4 +28,7 @@ POST http://localhost:8080/account/sign
 Content-Type: application/json
 
 
-{"email": "marat@gmail.com" ,"username": "Maratam", "password": "marat55"}
+{"email": "marat@gmail.com",
+  "username": "Maratamss",
+  "password": "marat55"
+}

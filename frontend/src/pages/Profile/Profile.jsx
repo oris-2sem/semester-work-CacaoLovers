@@ -5,15 +5,18 @@ import {Link, NavLink, Outlet, useParams} from "react-router-dom";
 import cn from "classnames"
 import {useAccount} from "../../store/AccountProvider";
 import {useEffect, useState} from "react";
+import {Modal} from "../../components/Modal/Modal";
+import {ProfileEditModal} from "./ProfileEditModal/ProfileEditModal";
 
 
 
 
 export const Profile = () => {
 
-    const { getAccount } = useAccount()
+    const {account, getAccount } = useAccount()
     const params = useParams()
     const [user, setUser] = useState()
+    const [visible, setVisible] = useState(false)
 
     useEffect(() => {
         async function getProfile() {
@@ -26,6 +29,7 @@ export const Profile = () => {
 
     return (
         <>
+            <Modal title={"Редактирование пользователя"} content={<ProfileEditModal account={user} closeModal={() => setVisible(false)}/>} visible={visible} onClose={() => setVisible(false)}/>
             <Helmet>
                 <title>Профиль</title>
             </Helmet>
@@ -43,7 +47,9 @@ export const Profile = () => {
                     <div className={styles.profile__left_bar__name}>{user?.firstName}</div>
                     <div className={styles.profile__left_bar__contact}>{user?.email}</div>
                     <div className={styles.profile__left_bar__contact}>+7 (917) 265 99 56</div>
-                    <button className={styles.profile__left_bar__button}>Редактировать</button>
+
+                    {account?.id === params.userId? <button className={styles.profile__left_bar__button}
+                             onClick={() => setVisible(true)}>Редактировать</button> : ""}
                 </div>
                 <div className={styles.profile__right_bar}>
                     <Outlet/>

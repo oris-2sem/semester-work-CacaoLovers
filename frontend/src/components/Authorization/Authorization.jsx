@@ -14,7 +14,7 @@ export const Authorization = ({closeModal = (f) => f, setTitle = (f) => f}) => {
 
     return (
         <div className={styles.auth_container}>
-            {state === "auth" ? (<AuthorizationForm closeModal={closeModal}/>) : <RegistrationForm/>}
+            {state === "auth" ? (<AuthorizationForm closeModal={closeModal}/>) : <RegistrationForm closeModal={closeModal}/>}
         </div>
     );
 }

@@ -19,9 +19,11 @@ public class LogoutAuthSuccessHandler implements LogoutSuccessHandler {
         response.addHeader("Access-Control-Allow-Credentials", "true");
         Cookie cookie = new Cookie("refresh", "");
         cookie.setHttpOnly(true);
-        cookie.setMaxAge(0); //30 DAY
+        cookie.setMaxAge(0);
         cookie.setPath("/");
         response.addCookie(cookie);
         response.setStatus(HttpServletResponse.SC_OK);
     }
+
+
 }

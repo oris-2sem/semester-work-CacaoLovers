@@ -22,12 +22,12 @@ export default class AuthService {
     }
 
     static async signUp({username, email, password}) {
-        return fetch(`http://${BASE_URI}:8080/account/sign`,{
+        return await fetch(`http://${BASE_URI}:8080/account/sign`,{
             method: "POST",
             headers: {
               "Content-type": "application/json"
             },
-            body: JSON.stringify({username, email, password})
+            body: JSON.stringify({username, email, password, city: {name: "Казань"}, status: "CONFIRMED", role: "USER"})
         })
     }
 
@@ -38,11 +38,9 @@ export default class AuthService {
             }
         });
     }
-
-
     static async logout() {
         return await fetch(`http://${BASE_URI}:8080/logout`, {
-            method: "GET",
+            method: "POST",
             credentials: "include"
         }).then();
     }

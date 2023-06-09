@@ -16,11 +16,14 @@ import javax.persistence.ManyToOne;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Volunteer extends AbstractEntity{
+
     @ManyToOne
     @JoinColumn(name = "accountId")
     private Account account;
 
-    @ManyToOne
-    @JoinColumn(name = "district_id")
-    private District district;
+
+    private Integer rating;
+    private Integer summaryFound;
+
+
 }

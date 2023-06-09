@@ -3,3 +3,7 @@ GET http://localhost:8080/district?city=Казань
 ###
 
 GET http://localhost:8080/district?city=Москва
+
+###
+
+POST http://localhost:8080/mvc/district/edit/7b5f65c7-8266-456d-b19a-843601262a29
